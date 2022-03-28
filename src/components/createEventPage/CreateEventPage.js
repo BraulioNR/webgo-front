@@ -22,8 +22,9 @@ import TimePicker from "@mui/lab/TimePicker"
 import "mapbox-gl/dist/mapbox-gl.css"
 import mapboxgl from "mapbox-gl/dist/mapbox-gl"
 import MapboxWorker from "mapbox-gl/dist/mapbox-gl-csp-worker"
-mapboxgl.workerClass = MapboxWorker
+
 const CreateEventPage = () => {
+  mapboxgl.workerClass = MapboxWorker
   const [valueDate, setValueDate] = React.useState(new Date())
   const [valueTime, setValueTime] = React.useState(
     new Date("2018-01-01T00:00:00.000Z")

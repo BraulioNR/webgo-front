@@ -20,8 +20,10 @@ import DatePicker from "@mui/lab/DatePicker"
 import TextField from "@mui/material/TextField"
 import TimePicker from "@mui/lab/TimePicker"
 import "mapbox-gl/dist/mapbox-gl.css"
-var mapboxgl = require("mapbox-gl/dist/mapbox-gl.js")
+import mapboxgl from "mapbox-gl/dist/mapbox-gl-csp"
+import MapboxWorker from "worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker" // Load worker code separately with worker-loader
 
+mapboxgl.workerClass = MapboxWorker
 const CreateEventPage = () => {
   const [valueDate, setValueDate] = React.useState(new Date())
   const [valueTime, setValueTime] = React.useState(

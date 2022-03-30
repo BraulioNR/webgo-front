@@ -23,6 +23,7 @@ import "mapbox-gl/dist/mapbox-gl.css"
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import MapboxWorker from "worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker"
 var mapboxgl = require("mapbox-gl/dist/mapbox-gl.js") // Load worker code separately with worker-loader
+mapboxgl.workerClass = MapboxWorker
 
 const CreateEventPage = () => {
   const [valueDate, setValueDate] = React.useState(new Date())
@@ -30,7 +31,7 @@ const CreateEventPage = () => {
     new Date("2018-01-01T00:00:00.000Z")
   )
   const [value, setValue] = React.useState(new Date())
-  mapboxgl.workerClass = MapboxWorker
+
   mapboxgl.accessToken = process.env.REACT_APP_MAP_TOKEN
   const mapContainer = useRef(null)
   const map = useRef(null)
